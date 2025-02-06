@@ -75,6 +75,10 @@ header {
     ol {
       margin-left: 24px;
     }
+
+    li::marker { /* Para el estilo de en un estado específico (viñeta)*/
+      font-size: .9em; /* Aumenta el tamaño del marcador */
+    }
   }
 
 .preparation__card {
@@ -120,8 +124,7 @@ header {
 
   li::marker {
     color: var(--Brown800);
-    size: 2px;
-
+    font-size: .9em; /* Aumenta el tamaño del marcador */
   }
 
   .td__Brown800 {
@@ -156,11 +159,7 @@ table {
 .attribution {
     font-weight: 500;
   
-    a:link{
-      color: var(--Brown900);
-    }
-  
-    a:visited{
+    a:visited{  /* Para el estilo de en un estado específico (enlace visitado)*/
       color: var(--Rose800);
     }
   }
