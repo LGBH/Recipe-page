@@ -5,7 +5,8 @@
   box-sizing: border-box;
 }
 
-/* Fuentes */
+/* Para cargar fuentes personalizadas desde archivos locales usar @font-face, de 
+lo contrario usar @import (para fuentes desde una URL externa)*/
 
 @font-face {
   font-family: 'outfit';
@@ -17,9 +18,9 @@
   src: url(./assets/fonts/young-serif/YoungSerif-Regular.ttf);
 }
 
-/* Variables */
-
 :root {
+  /* Colores */
+
   --White: hsl(0, 0%, 100%);
   --Stone100: hsl(30, 54%, 90%);
   --Stone150: hsl(30, 18%, 87%);
@@ -29,19 +30,28 @@
   --Rose800: hsl(332, 51%, 32%);
   --Rose50: hsl(330, 100%, 98%);
 
+  /* Fuente */
+
   --outfit: 'outfit';
   --young-serif: 'young-serif';
 }
 
 body {
   background-color: var(--Stone100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
+  width: 767px;
+  border-radius: 24px;
+  padding: 40px;
   background-color: var(--White);
-  padding: auto;
-  border-radius: 10px;
+
   font-family: var(--outfit);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Anidacion nesting */
@@ -71,15 +81,16 @@ header {
 }
 
 .content {
-    ul,
-    ol {
-      margin-left: 24px;
-    }
-
-    li::marker { /* Para el estilo de en un estado específico (viñeta)*/
-      font-size: .9em; /* Aumenta el tamaño del marcador */
-    }
+  ul,
+  ol {
+    margin-left: 24px;
   }
+
+  li::marker {
+    /* Para el estilo de en un estado específico (viñeta)*/
+    font-size: 0.9em; /* Aumenta el tamaño del marcador */
+  }
+}
 
 .preparation__card {
   background-color: var(--Rose50);
@@ -124,18 +135,12 @@ header {
 
   li::marker {
     color: var(--Brown800);
-    font-size: .9em; /* Aumenta el tamaño del marcador */
-  }
-
-  .td__Brown800 {
-    color: var(--Brown800);
-    font-weight: bold;
   }
 
   p {
     margin-bottom: 24px;
     font-size: 1.05rem;
-    color: var(--Brown800);
+    color: var(--Strong600);
   }
 }
 
@@ -147,26 +152,35 @@ table {
   width: 100%;
   border-collapse: collapse;
 
-  tr {
+  .tr__border__bottom {
     border: 1px solid transparent;
     border-bottom: 1px solid var(--Stone150);
-    td {
-      padding: 11px 32px;
-    }
+    padding: 11px 32px;
   }
+
+  td{
+    padding: 11px;
+  }
+
+  .td__color {
+    color: var(--Brown800);
+    font-weight: bold;
+  }
+
 }
 
-.attribution {
-    font-weight: 500;
-  
-    a:visited{  /* Para el estilo de en un estado específico (enlace visitado)*/
-      color: var(--Rose800);
-    }
+footer{
+
+.attribution > a {
+  color: var(--Stone600);
+
+  a::visited {
+    /* Para el estilo de en un estado específico (enlace visitado)*/
+    color: var(--Rose800);
   }
+}
+}
 
-/* Resoluciones */
-
-/* Resolución para pantallas pequeñas (375px y menos) */
 @media screen and (min-width: 375px) {
   .container {
     width: 100%;
@@ -200,7 +214,6 @@ table {
     width: 767px;
     margin: 128px auto 40px;
     border-radius: 24px;
-    box-shadow: 1;
     padding: 40px;
 
     img {
