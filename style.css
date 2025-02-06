@@ -47,7 +47,7 @@ body {
 .container {
   width: 767px;
   border-radius: 24px;
-  padding: 40px;
+  padding: 20px;
   background-color: var(--White);
   font-family: var(--outfit);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
